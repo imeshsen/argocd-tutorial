@@ -1,0 +1,187 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '2'
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"spring-build:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"spring-build\")].image"}]
+    openshift.io/generated-by: OpenShiftNewApp
+  resourceVersion: '1193834'
+  name: spring-build
+  uid: e8f7a2c3-fd01-4069-9160-d7d18d9b81a5
+  creationTimestamp: '2024-03-05T11:00:35Z'
+  generation: 2
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-03-05T11:00:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:image.openshift.io/triggers': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:openshift.io/generated-by': {}
+              'f:labels':
+                .: {}
+                'f:deployment': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"spring-build"}':
+                  .: {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":8080,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                    'k:{"containerPort":8443,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                    'k:{"containerPort":8778,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:resources': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-03-05T11:01:29Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:spec':
+              'f:containers':
+                'k:{"name":"spring-build"}':
+                  'f:image': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-03-05T11:01:34Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+      subresource: status
+  namespace: imesh
+  labels:
+    app: spring-build
+    app.kubernetes.io/component: spring-build
+    app.kubernetes.io/instance: spring-build
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: spring-build
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        deployment: spring-build
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+    spec:
+      containers:
+        - name: spring-build
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/imesh/spring-build@sha256:cab7d0be7fa673316bf765156ab557e51aa65e48d2c9c0182d1627061a9d33f5
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 8443
+              protocol: TCP
+            - containerPort: 8778
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 2
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2024-03-05T11:01:33Z'
+      lastTransitionTime: '2024-03-05T11:01:33Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2024-03-05T11:01:33Z'
+      lastTransitionTime: '2024-03-05T11:00:35Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "spring-build-597b59bbf5" has successfully progressed.
