@@ -5,7 +5,7 @@ metadata:
   namespace: argo-demo
 spec:
   tasks:
-    - name: fetch-repository
+    - name: clone-repository
       params:
         - name: url
           value: 'https://github.com/imeshsen/Customer-management-system.git'
