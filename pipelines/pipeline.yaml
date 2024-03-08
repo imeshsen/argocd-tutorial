@@ -96,3 +96,4 @@ spec:
   workspaces:
     - name: shared-workspace
     - name: sonar-settings
+    
