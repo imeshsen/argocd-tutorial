@@ -45,7 +45,7 @@ spec:
         - maven-compile
       taskRef:
         kind: Task
-        name: sqube
+        name: sonarqube-scanner
       workspaces:
         - name: source
           workspace: shared-workspace
