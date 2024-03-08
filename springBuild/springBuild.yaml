@@ -4,7 +4,7 @@ metadata:
   name: spring-app
   namespace: argo-demo
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       deployment: spring-app
