@@ -6,14 +6,10 @@ spec:
   serviceAccountName: pipeline
   interceptors:
     - ref:
-        name: "github"
+        name: "cel"
       params:
-        - name: "secretRef"
-          value:
-            secretName: github-secret
-            secretKey: secretToken
-        - name: "eventTypes"
-          value: ["push" , "pull-request"]
+        - name: "filter"
+          value: body.qualityGate.status == 'OK'
   bindings:
     - ref: spring-build
   template:
