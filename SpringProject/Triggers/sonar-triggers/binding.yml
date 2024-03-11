@@ -1,9 +1,0 @@
-apiVersion: triggers.tekton.dev/v1beta1
-kind: TriggerBinding
-metadata:
-  name: sonar-build
-spec:
-  params:
-  - name: qualityGateStatus
-    value: $(body.qualityGate.status)
-  

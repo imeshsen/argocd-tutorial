@@ -1,8 +1,0 @@
-apiVersion: triggers.tekton.dev/v1beta1
-kind: EventListener
-metadata:
-  name: sonar-build
-spec:
-  serviceAccountName: pipeline
-  triggers:
-    - triggerRef: sonar-trigger
