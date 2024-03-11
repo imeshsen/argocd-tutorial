@@ -1,0 +1,48 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: deploy
+spec:
+  tasks:
+  - name: cleanup-old-deployments
+    params:
+    - name: SCRIPT
+      value: oc delete all -l app=spring-build
+    taskRef:
+      kind: Task
+      name: openshift-client
+    workspaces:
+    - name: manifest-dir
+      workspace: shared-workspace
+    - name: kubeconfig-dir
+      workspace: shared-workspace
+  - name: openshift-deployment
+    params:
+    - name: SCRIPT
+      value: oc new-app openshift/java:8~https://github.com/imeshsen/CRUD-SpringBoot-without-DataBase.git --name=spring-build 
+    runAfter:
+    - cleanup-old-deployments
+    taskRef:
+      kind: Task
+      name: openshift-client
+    workspaces:
+    - name: manifest-dir
+      workspace: shared-workspace
+    - name: kubeconfig-dir
+      workspace: shared-workspace
+  - name: expose-service
+    params:
+    - name: SCRIPT
+      value: oc expose svc spring-build
+    runAfter:
+    - openshift-deployment
+    taskRef:
+      kind: Task
+      name: openshift-client
+    workspaces:
+    - name: manifest-dir
+      workspace: shared-workspace
+    - name: kubeconfig-dir
+      workspace: shared-workspace
+  workspaces:
+  - name: shared-workspace

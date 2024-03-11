@@ -1,0 +1,17 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: Trigger
+metadata:
+  name: sonar-trigger
+spec:
+  serviceAccountName: pipeline
+  interceptors:
+    - ref:
+        name: "cel"
+      params:
+        - name: "filter"
+          value: body.qualityGate.status == 'OK'
+  bindings:
+    - ref: sonar-build
+  template:
+    ref: sonar-build
+  
