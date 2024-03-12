@@ -34,7 +34,7 @@ spec:
       workspaces:
           - name: shared-workspace
             persistentVolumeClaim:
-              claimName: sonar-source-pvc
+              claimName: add-your-pvc
           - name: sonar-settings
             persistentVolumeClaim:
-              claimName: sonar-source-pvc
+              claimName: add-your-pvc
