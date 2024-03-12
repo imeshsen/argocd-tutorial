@@ -1,3 +1,8 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: maven
+  namespace: argo-demo
 spec:
   description: This Task can be used to run a Maven build. It uses a workspace to store m2 local repo.
   params:
