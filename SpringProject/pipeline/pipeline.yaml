@@ -1,3 +1,8 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: build-and-deploy
+  namespace: argo-demo
 spec:
   tasks:
     - name: fetch-repository
@@ -40,7 +45,7 @@ spec:
         - maven-compile
       taskRef:
         kind: Task
-        name: sqube
+        name: sonarqube-scanner
       workspaces:
         - name: source
           workspace: shared-workspace
@@ -74,7 +79,7 @@ spec:
           workspace: shared-workspace
         - name: kubeconfig-dir
           workspace: shared-workspace
-    - name: expose-service
+    - name: expose
       params:
         - name: SCRIPT
           value: oc expose svc spring-build
@@ -91,3 +96,4 @@ spec:
   workspaces:
     - name: shared-workspace
     - name: sonar-settings
+    
