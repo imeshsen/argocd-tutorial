@@ -31,7 +31,6 @@ spec:
       - name: IMAGE
         value: image-registry.openshift-image-registry.svc:5000/sonar-demo/spring-build
       workspaces:
-      workspaces:
           - name: shared-workspace
             persistentVolumeClaim:
               claimName: add-your-pvc
