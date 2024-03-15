@@ -1,7 +1,7 @@
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
-  name: mysqlDB
+  name: mysql
   namespace: argo-demo
 spec:
   strategy:
