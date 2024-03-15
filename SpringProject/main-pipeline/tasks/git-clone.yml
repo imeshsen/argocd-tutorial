@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1
 kind: Task
 metadata:
   name: git-clone
-  namespace: imesh
+  namespace: argo-demo
 spec:
   description: |-
     These Tasks are Git tasks to work with repositories used by other tasks in your Pipeline.
@@ -12,7 +12,7 @@ spec:
     name: url
     type: string
   - default: ""
-    description: Revision to checkout. (branch, tag, sha, ref, etc...)
+    description: Revision to checkout. (branch, tag, sha, ref, e
     name: revision
     type: string
   - default: ""
