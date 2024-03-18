@@ -23,7 +23,7 @@ spec:
         lastTriggeredImage: >-
           image-registry.openshift-image-registry.svc:5000/openshift/mysql@sha256:94cc8e52c148858add4d32c566d07e58754f97fefa8d199ae79d33cc40b26b47
     - type: ConfigChange
-  replicas: 4
+  replicas: 2
   revisionHistoryLimit: 10
   test: false
   selector:
