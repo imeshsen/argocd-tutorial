@@ -1,0 +1,26 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: el-spring-build
+  namespace: argo-demo
+spec:
+  host: >-
+    el-spring-build-argo-demo.apps.65f7f63a114251001e9b310c.cloud.techzone.ibm.com
+  port:
+    targetPort: http-listener
+  to:
+    kind: Service
+    name: el-spring-build
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+    - conditions:
+        - lastTransitionTime: '2024-03-18T11:12:42Z'
+          status: 'True'
+          type: Admitted
+      host: >-
+        el-spring-build-argo-demo.apps.65f7f63a114251001e9b310c.cloud.techzone.ibm.com
+      routerCanonicalHostname: router-default.apps.65f7f63a114251001e9b310c.cloud.techzone.ibm.com
+      routerName: default
+      wildcardPolicy: None
