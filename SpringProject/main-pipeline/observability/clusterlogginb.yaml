@@ -1,0 +1,132 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"logging.openshift.io/v1","kind":"ClusterLogging","metadata":{"annotations":{},"name":"instance","namespace":"openshift-logging"},"spec":{"collection":{"logs":{"fluentd":{},"type":"fluentd"}},"logStore":{"elasticsearch":{"nodeCount":1,"proxy":{"resources":{"limits":{"memory":"256Mi"},"requests":{"memory":"256Mi"}}},"redundancyPolicy":"ZeroRedundancy","resources":{"limits":{"memory":"7Gi"},"requests":{"memory":"7Gi"}},"storage":{}},"retentionPolicy":{"application":{"maxAge":"1d"},"audit":{"maxAge":"7d"},"infra":{"maxAge":"7d"}},"type":"elasticsearch"},"managementState":"Managed","visualization":{"kibana":{"replicas":1},"type":"kibana"}}}
+    logging.openshift.io/ocp-console-migration-target: lokistack-dev
+  creationTimestamp: '2024-04-03T04:29:57Z'
+  generation: 5
+  managedFields:
+    - apiVersion: logging.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:logging.openshift.io/ocp-console-migration-target': {}
+      manager: kubectl-patch
+      operation: Update
+      time: '2024-04-03T06:11:55Z'
+    - apiVersion: logging.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+        'f:spec':
+          .: {}
+          'f:collection':
+            .: {}
+            'f:logs': {}
+          'f:logStore': {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: '2024-04-03T06:32:39Z'
+    - apiVersion: logging.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:conditions': {}
+          'f:logStore':
+            .: {}
+            'f:elasticsearchStatus': {}
+          'f:visualization':
+            .: {}
+            'f:kibanaStatus': {}
+      manager: cluster-logging-operator
+      operation: Update
+      subresource: status
+      time: '2024-04-03T06:52:20Z'
+    - apiVersion: logging.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:collection':
+            'f:logs':
+              'f:type': {}
+          'f:logStore':
+            'f:lokistack':
+              .: {}
+              'f:name': {}
+            'f:type': {}
+      manager: Mozilla
+      operation: Update
+      time: '2024-04-03T07:09:01Z'
+  name: instance
+  namespace: openshift-logging
+  resourceVersion: '980562'
+  uid: 8b3d4f7b-2bab-4eed-a1c7-e15111501cff
+spec:
+  collection:
+    logs:
+      type: vector
+  logStore:
+    lokistack:
+      name: logging-loki
+    type: lokistack
+status:
+  conditions:
+    - lastTransitionTime: '2024-04-03T04:29:57Z'
+      message: spec.collection.logs.* is deprecated in favor of spec.collection.*
+      reason: DeprecatedCollectionLogsSpec
+      status: 'True'
+      type: Deprecated
+    - lastTransitionTime: '2024-04-03T04:29:58Z'
+      status: 'True'
+      type: Ready
+  logStore:
+    elasticsearchStatus:
+      - cluster:
+          numDataNodes: 1
+          initializingShards: 0
+          numNodes: 1
+          activePrimaryShards: 7
+          status: green
+          pendingTasks: 0
+          relocatingShards: 0
+          activeShards: 7
+          unassignedShards: 0
+        clusterName: elasticsearch
+        nodeConditions:
+          elasticsearch-cdm-n5f2bxe5-1: []
+        nodeCount: 1
+        pods:
+          client:
+            failed: []
+            notReady: []
+            ready:
+              - elasticsearch-cdm-n5f2bxe5-1-68c58c9b9d-xnq6g
+          data:
+            failed: []
+            notReady: []
+            ready:
+              - elasticsearch-cdm-n5f2bxe5-1-68c58c9b9d-xnq6g
+          master:
+            failed: []
+            notReady: []
+            ready:
+              - elasticsearch-cdm-n5f2bxe5-1-68c58c9b9d-xnq6g
+        shardAllocationEnabled: all
+  visualization:
+    kibanaStatus:
+      - deployment: kibana
+        pods:
+          failed: []
+          notReady: []
+          ready:
+            - kibana-79964c9cbc-4ffxw
+        replicaSets:
+          - kibana-79964c9cbc
+        replicas: 1
