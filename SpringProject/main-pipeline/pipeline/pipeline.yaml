@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
   name: build-and-deploy
-  namespace: argo-demo
+  namespace: oc-demo
 spec:
   tasks:
     - name: fetch-repository
