@@ -2,7 +2,7 @@ kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
   name: mysql
-  namespace: argo-demo
+  namespace: oc-demo
 spec:
   strategy:
     type: Recreate
