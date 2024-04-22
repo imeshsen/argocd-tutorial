@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1
 kind: Task
 metadata:
   name: sonarqube-scanner
-  namespace: argo-demo
+  namespace: oc-demo
   labels:
     app.kubernetes.io/version: '0.4'
     hub.tekton.dev/catalog: tekton
