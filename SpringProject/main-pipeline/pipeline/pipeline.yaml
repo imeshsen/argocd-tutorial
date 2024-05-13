@@ -68,7 +68,7 @@ spec:
     - name: openshift-deployment
       params:
         - name: SCRIPT
-          value: 'oc new-app openshift/java:17~https://github.com/imeshsen/OCPSamples.git'
+          value: 'oc new-app openshift/java:17~https://github.com/imeshsen/OCPSamples.git --name=spring-build'
       runAfter:
         - cleanup-old-deployments
       taskRef:
