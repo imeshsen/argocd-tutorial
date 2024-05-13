@@ -43,7 +43,7 @@ spec:
       description: Name of the file of the password within the sonarqube credentials workspace
       name: SONAR_PASSWORD_KEY
       type: string
-    - default: sqp_8c9d779a9ffd0c23fb2e5baf69d102e528c6f93a
+    - default: squ_422a3ac7ef5838b88993ad018f9eb37c2cd6aa98
       description: Sonarqube server token
       name: SONAR_TOKEN
       type: string
