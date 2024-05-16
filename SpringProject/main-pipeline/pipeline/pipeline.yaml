@@ -25,6 +25,8 @@ spec:
           value:
             - clean
             - compile
+        - name: MAVEN_IMAGE
+          value: 'maven:3-eclipse-temurin-17-alpine'
       runAfter:
         - fetch-repository
       taskRef:
@@ -40,7 +42,12 @@ spec:
     - name: code-analysis
       params:
         - name: SONAR_HOST_URL
-          value: 'https://sonar-oc-demo.apps.ocp4.nable.local'
+          value: >-
+            https://sonar-imeshsenanayake1996-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com
+        - name: SONAR_TOKEN
+          value: sqp_9e2831e34e6d8ca3a184768dea54c872c849ab71
+        - name: SONAR_PROJECT_KEY
+          value: sonar
       runAfter:
         - maven-compile
       taskRef:
@@ -68,7 +75,9 @@ spec:
     - name: openshift-deployment
       params:
         - name: SCRIPT
-          value: 'oc new-app openshift/java:17~https://github.com/imeshsen/OCPSamples.git --name=spring-build'
+          value: >-
+            oc new-app openshift/java~https://github.com/imeshsen/OCPSamples.git
+            --name=spring-build
       runAfter:
         - cleanup-old-deployments
       taskRef:
