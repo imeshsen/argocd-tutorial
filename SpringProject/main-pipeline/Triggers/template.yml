@@ -33,7 +33,7 @@ spec:
       workspaces:
           - name: shared-workspace
             persistentVolumeClaim:
-              claimName: pvc
+              claimName:  my-tekton-pvc
           - name: sonar-settings
             persistentVolumeClaim:
-              claimName: pvc
+              claimName:  my-tekton-pvc
