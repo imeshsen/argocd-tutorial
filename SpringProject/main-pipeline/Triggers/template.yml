@@ -27,9 +27,9 @@ spec:
       - name: git-url
         value: $(tt.params.git-repo-url)
       - name: git-revision
-        value: main
-      - name: IMAGE
-        value: image-registry.openshift-image-registry.svc:5000/sonar-demo/spring-build
+        value: $(tt.params.git-revision)
+      # - name: IMAGE
+      #   value: image-registry.openshift-image-registry.svc:5000/sonar-demo/spring-build
       workspaces:
           - name: shared-workspace
             persistentVolumeClaim:
