@@ -1,8 +1,66 @@
 apiVersion: logging.openshift.io/v1
 kind: ClusterLogging
 metadata:
+  creationTimestamp: '2024-04-25T05:42:02Z'
+  generation: 1
+  managedFields:
+    - apiVersion: logging.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:collection':
+            .: {}
+            'f:type': {}
+          'f:logStore':
+            .: {}
+            'f:elasticsearch':
+              .: {}
+              'f:nodeCount': {}
+              'f:redundancyPolicy': {}
+              'f:resources':
+                .: {}
+                'f:requests':
+                  .: {}
+                  'f:memory': {}
+              'f:storage':
+                .: {}
+                'f:size': {}
+            'f:lokistack':
+              .: {}
+              'f:name': {}
+            'f:retentionPolicy':
+              .: {}
+              'f:application':
+                .: {}
+                'f:maxAge': {}
+            'f:type': {}
+          'f:managementState': {}
+          'f:visualization':
+            .: {}
+            'f:kibana':
+              .: {}
+              'f:replicas': {}
+            'f:type': {}
+      manager: Mozilla
+      operation: Update
+      time: '2024-04-25T05:42:02Z'
+    - apiVersion: logging.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:conditions': {}
+          'f:logStore': {}
+          'f:visualization': {}
+      manager: cluster-logging-operator
+      operation: Update
+      subresource: status
+      time: '2024-05-28T10:41:04Z'
   name: instance
   namespace: openshift-logging
+  resourceVersion: '127636975'
+  uid: 10af0359-a41f-48ed-94c3-2e5989062be3
 spec:
   collection:
     type: vector
@@ -33,4 +91,3 @@ status:
       type: Ready
   logStore: {}
   visualization: {}
-
