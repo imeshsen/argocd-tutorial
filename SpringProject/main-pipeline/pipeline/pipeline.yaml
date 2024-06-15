@@ -88,7 +88,7 @@ spec:
           workspace: shared-workspace
         - name: kubeconfig-dir
           workspace: shared-workspace
-    - name: expose-svc
+    - name: expose-service
       params:
         - name: SCRIPT
           value: oc expose svc spring-build
