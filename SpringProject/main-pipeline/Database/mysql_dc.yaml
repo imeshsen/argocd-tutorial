@@ -1,19 +1,8 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  annotations:
-    template.alpha.openshift.io/wait-for-ready: "true"
-  creationTimestamp: "2024-06-17T05:44:20Z"
-  generation: 2
-  labels:
-    app.kubernetes.io/part-of: customer
-    app.openshift.io/runtime: mysql-database
-    template: mysql-ephemeral-template
-    template.openshift.io/template-instance-owner: 17257156-3431-4e41-9186-a43bc097dbd8
   name: mysql
   namespace: oc-demo
-  resourceVersion: "151064"
-  uid: 24ac5f33-6a9e-47e3-bdec-357fb73ac16d
 spec:
   replicas: 1
   revisionHistoryLimit: 10
