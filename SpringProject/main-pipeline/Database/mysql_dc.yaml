@@ -128,5 +128,5 @@ status:
       lastTransitionTime: '2024-07-02T10:24:16Z'
       reason: NewReplicationControllerAvailable
       message: replication controller "mysql-1" successfully rolled out
-  replicas: 2
+  replicas: 1
   readyReplicas: 1
