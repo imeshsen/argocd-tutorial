@@ -116,17 +116,5 @@ status:
   unavailableReplicas: 0
   latestVersion: 1
   updatedReplicas: 1
-  conditions:
-    - type: Available
-      status: 'True'
-      lastUpdateTime: '2024-07-02T10:24:14Z'
-      lastTransitionTime: '2024-07-02T10:24:14Z'
-      message: Deployment config has minimum availability.
-    - type: Progressing
-      status: 'True'
-      lastUpdateTime: '2024-07-02T10:24:16Z'
-      lastTransitionTime: '2024-07-02T10:24:16Z'
-      reason: NewReplicationControllerAvailable
-      message: replication controller "mysql-1" successfully rolled out
   replicas: 2
   readyReplicas: 1
