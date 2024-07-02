@@ -1,73 +1,12 @@
-kind: PersistentVolumeClaim
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
   name: my-tekton-pvc
   namespace: openshift-mta
-  uid: aef5185c-779f-47e8-9a1f-809926238b0f
-  resourceVersion: '517929'
-  creationTimestamp: '2024-07-02T04:08:15Z'
-  annotations:
-    pv.kubernetes.io/bind-completed: 'yes'
-    pv.kubernetes.io/bound-by-controller: 'yes'
-    volume.beta.kubernetes.io/storage-provisioner: k8s-sigs.io/nfs-subdir-external-provisioner
-    volume.kubernetes.io/storage-provisioner: k8s-sigs.io/nfs-subdir-external-provisioner
-  finalizers:
-    - kubernetes.io/pvc-protection
-  managedFields:
-    - manager: Mozilla
-      operation: Update
-      apiVersion: v1
-      time: '2024-07-02T04:08:15Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:accessModes': {}
-          'f:resources':
-            'f:requests':
-              .: {}
-              'f:storage': {}
-          'f:storageClassName': {}
-          'f:volumeMode': {}
-    - manager: kube-controller-manager
-      operation: Update
-      apiVersion: v1
-      time: '2024-07-02T04:08:15Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:pv.kubernetes.io/bind-completed': {}
-            'f:pv.kubernetes.io/bound-by-controller': {}
-            'f:volume.beta.kubernetes.io/storage-provisioner': {}
-            'f:volume.kubernetes.io/storage-provisioner': {}
-        'f:spec':
-          'f:volumeName': {}
-    - manager: kube-controller-manager
-      operation: Update
-      apiVersion: v1
-      time: '2024-07-02T04:08:15Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:status':
-          'f:accessModes': {}
-          'f:capacity':
-            .: {}
-            'f:storage': {}
-          'f:phase': {}
-      subresource: status
 spec:
   accessModes:
     - ReadWriteOnce
+  volumeMode: Filesystem
   resources:
     requests:
-      storage: 200Mi
-  volumeName: pvc-aef5185c-779f-47e8-9a1f-809926238b0f
-  storageClassName: managed-nfs-storage
-  volumeMode: Filesystem
-status:
-  phase: Bound
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: 200Mi
+      storage: 200mi
