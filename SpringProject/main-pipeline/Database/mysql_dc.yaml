@@ -1,15 +1,8 @@
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
-  name: mysql
   namespace: logging
 spec:
-  strategy:
-    type: Recreate
-    recreateParams:
-      timeoutSeconds: 600
-    resources: {}
-    activeDeadlineSeconds: 21600
   triggers:
     - type: ImageChange
       imageChangeParams:
@@ -106,16 +99,5 @@ spec:
       dnsPolicy: ClusterFirst
       securityContext: {}
       schedulerName: default-scheduler
-status:
-  observedGeneration: 7
-  details:
-    message: config change
-    causes:
-      - type: ConfigChange
-  availableReplicas: 1
-  unavailableReplicas: 0
-  latestVersion: 1
-  updatedReplicas: 1
-  
-  replicas: 2
+  replicas: 1
   readyReplicas: 1
