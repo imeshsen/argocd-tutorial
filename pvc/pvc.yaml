@@ -2,20 +2,13 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: my-tekton-pvc
-  namespace: default
+  namespace: oc-demo
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 200Mi
-  volumeName: pvc-6f571484-810b-4a79-9a30-a8f94c4a8a60
+  volumeName: pvc-a35ca174-3174-466b-8078-02b8e6bf4086
   storageClassName: managed-nfs-storage
   volumeMode: Filesystem
-status:
-  phase: Bound
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: 200Mi
-
