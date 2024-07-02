@@ -1,0 +1,49 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: customer-management-system-git
+  namespace: logging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-management-system-git
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: customer-management-system-git
+        deployment: customer-management-system-git
+    spec:
+      containers:
+        - name: customer-management-system-git
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/logging/customer-management-system-git:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 8443
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 1
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+ 
