@@ -6,10 +6,10 @@ metadata:
 spec:
   strategy:
     type: Recreate
-    resources: {}
-    activeDeadlineSeconds: 21600
     recreateParams:
       timeoutSeconds: 600
+    resources: {}
+    activeDeadlineSeconds: 21600
   triggers:
     - type: ImageChange
       imageChangeParams:
@@ -18,8 +18,10 @@ spec:
           - mysql
         from:
           kind: ImageStreamTag
-          name: 'mysql:8.0-el8'
           namespace: openshift
+          name: 'mysql:8.0-el8'
+        lastTriggeredImage: >-
+          image-registry.openshift-image-registry.svc:5000/openshift/mysql@sha256:8e9a6595ac9aec17c62933d3b5ecc78df8174a6c2ff74c7f602235b9aef0a340
     - type: ConfigChange
   replicas: 1
   revisionHistoryLimit: 10
@@ -104,7 +106,16 @@ spec:
       dnsPolicy: ClusterFirst
       securityContext: {}
       schedulerName: default-scheduler
-      imagePullSecrets: []
-  paused: false
-  replicas: 1
+status:
+  observedGeneration: 2
+  details:
+    message: config change
+    causes:
+      - type: ConfigChange
+  availableReplicas: 1
+  unavailableReplicas: 0
+  latestVersion: 1
+  updatedReplicas: 1
+  
+  replicas: 2
   readyReplicas: 1
