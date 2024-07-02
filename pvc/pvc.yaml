@@ -8,6 +8,6 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 250Mi
+      storage: 200Mi
   storageClassName: managed-nfs-storage
   volumeMode: Filesystem
