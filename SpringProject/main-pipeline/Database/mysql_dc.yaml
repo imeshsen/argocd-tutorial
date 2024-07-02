@@ -117,4 +117,3 @@ status:
   latestVersion: 1
   updatedReplicas: 1
   replicas: 2
-  readyReplicas: 1
