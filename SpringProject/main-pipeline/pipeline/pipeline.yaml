@@ -43,9 +43,9 @@ spec:
       params:
         - name: SONAR_HOST_URL
           value: >-
-            https://sonar-imeshsenanayake1996-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com
+            https://sonar-oc-demo.apps.66837f6cdebf83001ed8305c.cloud.techzone.ibm.com
         - name: SONAR_TOKEN
-          value: sqp_2d6f43364c200551638d749010779442d8eac866
+          value: sqp_61dba3a297f68d059935a359ddd63417e607ea30
         - name: SONAR_PROJECT_KEY
           value: sonar
       runAfter:
