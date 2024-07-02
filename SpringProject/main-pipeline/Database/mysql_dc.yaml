@@ -107,7 +107,7 @@ spec:
       securityContext: {}
       schedulerName: default-scheduler
 status:
-  observedGeneration: 2
+  observedGeneration: 7
   details:
     message: config change
     causes:
@@ -117,5 +117,5 @@ status:
   latestVersion: 1
   updatedReplicas: 1
   
-  replicas: 2
+  replicas: 1
   readyReplicas: 1
