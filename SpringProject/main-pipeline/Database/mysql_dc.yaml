@@ -187,7 +187,7 @@ spec:
         lastTriggeredImage: >-
           image-registry.openshift-image-registry.svc:5000/openshift/mysql@sha256:8e9a6595ac9aec17c62933d3b5ecc78df8174a6c2ff74c7f602235b9aef0a340
     - type: ConfigChange
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 10
   test: false
   selector:
