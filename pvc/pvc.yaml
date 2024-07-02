@@ -9,6 +9,5 @@ spec:
   resources:
     requests:
       storage: 200Mi
-  volumeName: pvc-a35ca174-3174-466b-8078-02b8e6bf4086
   storageClassName: managed-nfs-storage
   volumeMode: Filesystem
