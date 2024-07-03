@@ -43,9 +43,9 @@ spec:
       params:
         - name: SONAR_HOST_URL
           value: >-
-            https://sonar-sonarqube.apps.66837f6cdebf83001ed8305c.cloud.techzone.ibm.com
+            https://c3b5-122-255-9-2.ngrok-free.app
         - name: SONAR_TOKEN
-          value: sqp_c4ca15aebda54fa84be6bf84e012b6ca3d337139
+          value: sqp_085d8e9ef1295ed4ba837812176eff0ff8088d25
         - name: SONAR_PROJECT_KEY
           value: sonar
       runAfter:
